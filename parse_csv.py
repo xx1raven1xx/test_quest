@@ -2,23 +2,26 @@
 
 import csv
 import io
+import shutil
+
+path_csv = 'D:\\python\\test1\\test_data.csv'
+path_test_data = shutil.copy(path_csv, 'D:\\python\\test1\\data.csv')
+
 
 greeting = ['здравствуйте', 'добрый день']
 bye = ['до свидания', 'всего доброго']
+my_name = ['меня зовут']
 
-path_csv = 'D:\\python\\test1\\test_data.csv'
 
-with io.open(path_csv, newline='', encoding='utf-8') as f:
+with io.open(path_test_data, newline='', encoding='utf-8') as f:
     reader = csv.reader(f)
     for rows in reader:
         list_lower = [row.lower() for row in rows]
         if list_lower[2] == 'manager':
-            if greeting[0] in list_lower[3]:
-                print(list_lower)
-            if greeting[1] in list_lower[3]:
-                print(list_lower)
-            if bye[0] in list_lower[3]:
-                print(list_lower)
-            if bye[1] in list_lower[3]:
-                print(list_lower)
-            #if (for greet in greeting) in list_lower[3]:
+            for greet in greeting:
+                if greet in list_lower[3]:
+                    print(list_lower)
+            for b in bye:
+                if b in list_lower[3]:
+                    print(list_lower)
+
