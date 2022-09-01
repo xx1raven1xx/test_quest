@@ -6,7 +6,7 @@ import shutil
 
 path_csv = 'D:\\python\\test1\\test_data.csv'
 path_test_data = shutil.copy(path_csv, 'D:\\python\\test1\\data.csv')
-
+print(path_test_data)
 
 greeting = ['здравствуйте', 'добрый день']
 bye = ['до свидания', 'всего доброго']
